@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Security Feed</title>
+    <style>
+        body { margin: 0; background-color: #000; display: flex; justify-content: center; align-items: center; height: 100vh; color: white; font-family: sans-serif; }
+        img.stream { max-width: 100%; max-height: 100%; }
+        .loading-text { font-size: 1.5em; }
+    </style>
+</head>
+<body>
+    <!-- 
+        The image source for the stream will be set here.
+        IMPORTANT: Replace the placeholder URL with the REAL ngrok URL you copied.
+    -->
+    <img class="stream" 
+         src="https://REPLACE-THIS-WITH-YOUR-NGROK-URL.ngrok-free.app/?action=stream" 
+         alt="Loading Stream..." 
+         onerror="this.alt='Error: Stream not available. Is the Pi running?';">
+
+</body>
+</html>
