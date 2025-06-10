@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi-Secure Login</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; margin: 0; }
+        .login-container { background-color: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-align: center; }
+        h1 { margin-top: 0; color: #1c1e21; }
+        input { width: 100%; padding: 12px; margin: 10px 0 20px; border: 1px solid #dddfe2; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; border: none; border-radius: 6px; background-color: #1877f2; color: white; font-size: 16px; font-weight: bold; cursor: pointer; }
+        button:hover { background-color: #166fe5; }
+        #error-msg { color: #fa383e; margin-top: 10px; visibility: hidden; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Pi-Secure System</h1>
+        <p>Enter password to view live stream.</p>
+        <form onsubmit="return checkPassword()">
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p id="error-msg">Incorrect Password!</p>
+        </form>
+    </div>
+
+    <script>
+        function checkPassword() {
+            // WARNING: This is NOT secure and is for DEMO purposes only.
+            // The password is visible in the page source.
+            const webPassword = "demopassword123"; 
+            const inputPassword = document.getElementById('password').value;
+            const errorMsg = document.getElementById('error-msg');
+
+            if (inputPassword === webPassword) {
+                // If password is correct, redirect to the stream page.
+                window.location.href = "stream.html";
+                return false; // Prevent form from actually submitting
+            } else {
+                // If password is wrong, show an error message.
+                errorMsg.style.visibility = 'visible';
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>
